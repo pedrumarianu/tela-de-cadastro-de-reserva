@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Reserva de Vagas</title>
+    <style>
+        /* Estilos para a tela de cadastro */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para o botão de Salvar */
+        #salvar {
+            background-color: #d31111;
+        }
+        #salvar:hover {
+            background-color: #d31111;
+        }
+
+        /* Estilos para a tela de listagem */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Reserva de Vagas</h1>
+        <form id="cadastro-form">
+            <label for="placa">Placa do Veículo:</label>
+            <input type="text" id="placa" required>
+
+            <label for="nome">Nome do Proprietário:</label>
+            <input type="text" id="nome" required>
+
+            <label for="apartamento">Número do Apartamento:</label>
+            <input type="text" id="apartamento" required>
+
+            <label for="bloco">Bloco do Apartamento:</label>
+            <input type="text" id="bloco" required>
+
+            <label for="modelo">Modelo do Veículo:</label>
+            <input type="text" id="modelo" required>
+
+            <label for="cor">Cor do Veículo:</label>
+            <input type="text" id="cor" required>
+
+            <label for="vaga">Número da Vaga de Estacionamento:</label>
+            <input type="text" id="vaga" required>
+
+            <button type="button" id="salvar">Salvar</button>
+        </form>
+    </div>
+
+    <h1>Listagem de Vagas Cadastradas</h1>
+    <ul id="vagas-list">
+        <!-- Vagas cadastradas serão adicionadas aqui via JavaScript -->
+    </ul>
+
+    <script>
+        // JavaScript para listar as vagas (simulação)
+        const vagasCadastradas = [
+            { placa: "ABC1234", nome: "João", apartamento: "101", bloco: "A", modelo: "Sedan", cor: "Prata", vaga: "A101" },
+            { placa: "XYZ5678", nome: "Maria", apartamento: "202", bloco: "B", modelo: "SUV", cor: "Preto", vaga: "B202" },
+        ];
+
+        const vagasList = document.getElementById("vagas-list");
+        vagasCadastradas.forEach((vaga) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `Placa: ${vaga.placa}, Nome: ${vaga.nome}, Vaga: ${vaga.vaga}`;
+            vagasList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
+<script>
+    const vagasCadastradas = [
+        { placa: "ABC1234", nome: "João", apartamento: "101", bloco: "A", modelo: "Sedan", cor: "Prata", vaga: "A101" },
+        { placa: "XYZ5678", nome: "Maria", apartamento: "202", bloco: "B", modelo: "SUV", cor: "Preto", vaga: "B202" },
+    ];
+
+    const vagasList = document.getElementById("vagas-list");
+
+    function salvarDados() {
+        const placa = document.getElementById("placa").value;
+        const nome = document.getElementById("nome").value;
+        const apartamento = document.getElementById("apartamento").value;
+        const bloco = document.getElementById("bloco").value;
+        const modelo = document.getElementById("modelo").value;
+        const cor = document.getElementById("cor").value;
+        const vaga = document.getElementById("vaga").value;
+
+        const novoCadastro = {
+            placa: placa,
+            nome: nome,
+            apartamento: apartamento,
+            bloco: bloco,
+            modelo: modelo,
+            cor: cor,
+            vaga: vaga,
+        };
+
+        vagasCadastradas.push(novoCadastro);
+
+        document.getElementById("placa").value = "";
+        document.getElementById("nome").value = "";
+        document.getElementById("apartamento").value = "";
+        document.getElementById("bloco").value = "";
+        document.getElementById("modelo").value = "";
+        document.getElementById("cor").value = "";
+        document.getElementById("vaga").value = "";
+
+        atualizarListagem();
+    }
+
+    function atualizarListagem() {
+        vagasList.innerHTML = "";
+        vagasCadastradas.forEach((vaga, index) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `Placa: ${vaga.placa}, Nome: ${vaga.nome}, Vaga: ${vaga.vaga}`;
+            vagasList.appendChild(listItem);
+        });
+    }
+
+    document.getElementById("salvar").addEventListener("click", salvarDados);
+
+    atualizarListagem();
+</script>
+
+
+

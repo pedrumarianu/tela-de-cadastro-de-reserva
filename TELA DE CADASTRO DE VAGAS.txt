@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Reserva de Vagas</title>
+    <style>
+        /* Estilos CSS aqui */
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Reserva de Vagas</h1>
+    <form id="cadastro-form">
+        <label for="placa">Placa do Veículo:</label>
+        <input type="text" id="placa" required><br>
+
+        <label for="nome">Nome do Proprietário:</label>
+        <input type="text" id="nome" required><br>
+
+        <label for="apartamento">Número do Apartamento:</label>
+        <input type="text" id="apartamento" required><br>
+
+        <label for="bloco">Bloco do Apartamento:</label>
+        <input type="text" id="bloco" required><br>
+
+        <label for="modelo">Modelo do Veículo:</label>
+        <input type="text" id="modelo" required><br>
+
+        <label for="cor">Cor do Veículo:</label>
+        <input type="text" id="cor" required><br>
+
+        <label for="vaga">Número da Vaga de Estacionamento:</label>
+        <input type="text" id="vaga" required><br>
+
+        <button type="button" id="salvar">Salvar</button>
+    </form>
+
+    <script>
+        // JavaScript para manipular o formulário e mostrar a mensagem de confirmação
+        document.getElementById("salvar").addEventListener("click", function () {
+            // Coletar os dados do formulário
+            const placa = document.getElementById("placa").value;
+            const nome = document.getElementById("nome").value;
+            const apartamento = document.getElementById("apartamento").value;
+            const bloco = document.getElementById("bloco").value;
+            const modelo = document.getElementById("modelo").value;
+            const cor = document.getElementById("cor").value;
+            const vaga = document.getElementById("vaga").value;
+
+            // Exibir os dados no console
+            console.log("Placa: " + placa);
+            console.log("Nome: " + nome);
+            console.log("Apartamento: " + apartamento);
+            console.log("Bloco: " + bloco);
+            console.log("Modelo: " + modelo);
+            console.log("Cor: " + cor);
+            console.log("Vaga: " + vaga);
+
+            // Exibir mensagem de confirmação
+            alert("Cadastro realizado com sucesso!");
+        });
+    </script>
+</body>
+</html>
